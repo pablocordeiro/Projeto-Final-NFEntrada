@@ -9,7 +9,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+        <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+
         <link rel="stylesheet" href="estilo.css">
     </head>
     <body>
@@ -17,7 +19,8 @@
             <h1 class="text-center">Nota Fiscal De Entrada</h1>
         </header>                
         <div class="container">
-            <form class="needs-validation pb-4" novalidate>
+            <!-- <form class="was-validated" novalidate="">             -->
+            <form class="needs-validation pb-4" novalidate="">
                 
                 <h4 class="mt-4 border-bottom pb-4">Dados Gerais</h4>
                 <div class="row">
@@ -44,7 +47,7 @@
                         <label for="dtemissao" class="required">Emissão</label>
                         <!-- <input type="text" class="form-control" id="dtemissao"> -->
                         <div class="input-group  date  js-datepicker">
-                            <input type="text" name="dtemissao" id="dtemissao" class="form-control" placeholder="dd/mm/aaaa"  autocomplete="off" required>
+                            <input type="text" name="dtemissao" id="dtemissao" class="form-control js-date" placeholder="dd/mm/aaaa"  autocomplete="off" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="far fa-calendar-plus "></span>
@@ -58,7 +61,7 @@
                         <label for="dtentrada" class="required">Entrada</label>
                         <!-- <input type="text" class="form-control" id="dtentrada"> -->
                         <div class="input-group  date  js-datepicker">
-                            <input type="text" name="dtemissao" id="dtentrada" class="form-control"  placeholder="dd/mm/aaaa" autocomplete="off" required>
+                            <input type="text" name="dtemissao" id="dtentrada" class="form-control js-date"  placeholder="dd/mm/aaaa" autocomplete="off" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="far fa-calendar-plus"></span>
@@ -70,7 +73,7 @@
                     
                     <div class="form-group col-12 col-md-3">
                         <label for="hrentrada">Hora</label>
-                        <input type="text" class="form-control" id="hrentrada">
+                        <input type="text" class="form-control js-time" id="hrentrada">
                     </div>
                     
                     <div class="form-group col-12 col-md-9">
@@ -240,12 +243,12 @@
 
                     <div class="form-group col-12 col-md-2">
                         <label for="pesobruto">Peso Bruto</label>
-                        <input type="text" class="form-control" id="pesobruto">
+                        <input type="text" class="form-control js-money" id="pesobruto">
                     </div>
 
                     <div class="form-group col-12 col-md-2">
                         <label for="pesoliq">Peso Líquido</label>
-                        <input type="text" class="form-control" id="pesoliq">
+                        <input type="text" class="form-control js-money" id="pesoliq">
                     </div>
 
                 </div>
@@ -263,7 +266,7 @@
                         <label for="datacanc">Data Cancelamento</label>
                         <!-- <input type="text" class="form-control" id="datacanc"> -->
                         <div class="input-group  date  js-datepicker">
-                            <input type="text" name="dtemissao" id="datacanc" class="form-control"  placeholder="dd/mm/aaaa" autocomplete="off">
+                            <input type="text" name="dtemissao" id="datacanc" class="form-control js-date"  placeholder="dd/mm/aaaa" autocomplete="off">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="far fa-calendar-plus "></span>
@@ -293,7 +296,7 @@
                     
                     <!-- Modal body -->
                     <div class="modal-body">
-                            <table class="dados-os table table-striped table-bordered table-hover">
+                            <table id="tableDepartamento" class="dados-os table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Código</th>
@@ -610,9 +613,13 @@
     <script src="js/bootstrap-datepicker.min.js"></script>
     <script src="js/bootstrap-datepicker.pt-BR.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>        
+    <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
     <script>
         $('.js-number').mask('########0');
         $('.js-placa').mask('AAA-9999');
+        $('.js-date').mask('00/00/0000');
+        $('.js-time').mask('00:00:00');
+        $('.js-money').mask('#.##0,00', {reverse: true});
 
 
         $('.js-datepicker').datepicker({
@@ -640,5 +647,18 @@
             });
         }, false);
         })();
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            var table= $('#tableDepartamento').DataTable();
+            var tableBody = '#tableDepartamento tbody';
+            $(tableBody).on('click', 'tr', function () {
+                var cursor = table.row($(this).parents('tr'));//get the clicked row
+                var data=cursor.data();// this will give you the data in the current row.
+            });
+
+            $('form').find("input[name='departamento'][type='text']").val(data.name);
+        });
     </script>
 </html>
