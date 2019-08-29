@@ -1,0 +1,20 @@
+body {
+    padding-bottom: 50px;
+}
+
+.container{
+    background-color: rgb(204, 211, 248);
+    padding-bottom: 50px;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.form-header{
+    background-color: rgb(37, 68, 240);
+    color: #fff;
+    padding: 1%;
+    /* margin: 0% */
+}

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Nota Fiscal de Entrada</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+    <body>
+        <div class="container">
+            <form action="">
+                <header class="form-header">
+                    <h1 class="text-center">Nota Fiscal De Entrada</h1>
+                </header>                
+
+                <h4>Dados Gerais</h4>
+                <div class="row">
+                    <div class="form-group col-4">
+                        <label class="required" for="numero">Número</label>
+                        <input type="text" class="form-control  js-number" id="numero" required>
+                    </div>
+
+                    <div class="form-group col-4">
+                        <label class="required" for="serie">Série</label>
+                        <input type="text" maxlength="5" class="form-control" id="serie" required>
+                    </div>
+
+                    <div class="form-group col-4">
+                        <label for="subserie">Sub-série</label>
+                        <input type="text"  maxlength="5" class="form-control" id="subserie">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-4">
+                        <label for="dtemissao" class="required">Emissão</label>
+                        <!-- <input type="text" class="form-control" id="dtemissao"> -->
+                        <div class="input-group  date  js-datepicker">
+                            <input type="text" name="dtemissao" id="dtemissao" class="form-control" autocomplete="off" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="far fa-calendar-plus "></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <!-- <div class="form-group  col-sm-4">
+                        <label class="control-label" for="Data">Data de Entrega</label>
+                        <div class="input-group  date   js-datepicker">
+                            <input type="text" name="Data" class="form-control" autocomplete="off">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="far fa-calendar-plus "></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> -->
+        
+
+                    <div class="form-group col-4">
+                        <label for="dtentrada" class="required">Entrada</label>
+                        <!-- <input type="text" class="form-control" id="dtentrada"> -->
+                        <div class="input-group  date  js-datepicker">
+                            <input type="text" name="dtemissao" id="dtentrada" class="form-control" autocomplete="off">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="far fa-calendar-plus "></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-4">
+                        <label for="hrentrada">Hora</label>
+                        <input type="text" class="form-control" id="hrentrada">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-12 col-md-6">
+                        <label class="control-label" for="departamento">Departamento</label>
+                        <div class="input-group">
+                            <input type="text" hidden name="codigoDepartamento" id="codigoDepartamento">
+                            <div class="input-group">
+                                <input type="text" value="" class="form-control" name="departamento" id="departamento" placeholder="">
+                                <div class="input-group-append">
+                                    <div class="input-group-text" data-toggle="modal" data-target="#modalDepartamento">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="form-group col-12 col-md-6">
+                        <label class="control-label" for="especie">Espécie</label>
+                        <div class="input-group">
+                            <input type="text" hidden name="codigoEspecie" id="codigoEspecie">
+                            <div class="input-group">
+                                <input type="text" value="" class="form-control" name="especie" id="especie" placeholder="">
+                                <div class="input-group-append">
+                                    <div class="input-group-text" data-toggle="modal" data-target="#modalEspecie">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-12 col-md-6">
+                        <label class="control-label" for="operacao">Operação</label>
+                        <div class="input-group">
+                            <input type="text" hidden name="codigoOperacao" id="codigoOperacao">
+                            <div class="input-group">
+                                <input type="text" value="" class="form-control" name="operacao" id="operacao" placeholder="">
+                                <div class="input-group-append">
+                                    <div class="input-group-text" data-toggle="modal" data-target="#modalOperacao">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label class="control-label" for="transportador">Transportador</label>
+                        <div class="input-group">
+                            <input type="text" hidden name="codigoTransportador" id="codigoTransportador">
+                            <div class="input-group">
+                                <input type="text" value="" class="form-control" name="transportador" id="transportador" placeholder="">
+                                <div class="input-group-append">
+                                    <div class="input-group-text" data-toggle="modal" data-target="#modalTransportador">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-12 col-md-4">
+                        <label class="control-label" for="apuracao">Apuração</label>
+                        <div class="input-group">
+                            <input type="text" hidden name="codigoApuracao" id="codigoApuracao">
+                            <div class="input-group">
+                                <input type="text" value="" class="form-control" name="apuracao" id="apuracao" placeholder="">
+                                <div class="input-group-append">
+                                    <div class="input-group-text" data-toggle="modal" data-target="#modalApuracao">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label class="control-label" for="publico">Publico Estorno</label>
+                        <div class="input-group">
+                            <input type="text" hidden name="codigoPublico" id="codigoPublico">
+                            <div class="input-group">
+                                <input type="text" value="" class="form-control" name="publico" id="publico" placeholder="">
+                                <div class="input-group-append">
+                                    <div class="input-group-text" data-toggle="modal" data-target="#modalPublico">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label class="control-label" for="tipoMov">Tipo de movimento</label>
+                        <div class="input-group">
+                            <input type="text" hidden name="codigoTipoMov" id="codigoTipoMov">
+                            <div class="input-group">
+                                <input type="text" value="" class="form-control" name="tipoMov" id="tipoMov" placeholder="">
+                                <div class="input-group-append">
+                                    <div class="input-group-text" data-toggle="modal" data-target="#modalTipoMovimento">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h4>Dados do Transporte</h4>
+                
+                <div class="row">
+                    <div class="form-group col-12 col-md-3">
+                        <label for="placa">Placa</label>
+                        <input type="text" class="form-control js-placa" id="placa">
+                    </div>
+
+                    <div class="form-group col-12 col-md-1">
+                        <label for="tipofrete">UF</label>
+                        <select class="form-control" id="tipofrete">
+                            <option></option>
+                            <option>BA</option>
+                            <option>PE</option>
+                            <option>SP</option>
+                            <option>RJ</option>
+                        </select>
+                    </div>  
+    
+                    
+                    <div class="form-group col-12 col-md-2">
+                        <label for="volumeqtd">Volume(Qtd)</label>
+                        <input type="text" class="form-control  js-number" id="volumeqtd">
+                    </div>
+
+                    <div class="form-group col-12 col-md-2">
+                        <label for="volumeesp">Volume(Especie)</label>
+                        <input type="text" class="form-control" id="volumeesp">
+                    </div>
+
+                    <div class="form-group col-12 col-md-2">
+                        <label for="pesobruto">Peso Bruto</label>
+                        <input type="text" class="form-control" id="pesobruto">
+                    </div>
+
+                    <div class="form-group col-12 col-md-2">
+                        <label for="pesoliq">Peso Líquido</label>
+                        <input type="text" class="form-control" id="pesoliq">
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-12 col-md-4">
+                        <label for="datacanc">Data Cancelamento</label>
+                        <!-- <input type="text" class="form-control" id="datacanc"> -->
+                        <div class="input-group  date  js-datepicker">
+                            <input type="text" name="dtemissao" id="datacanc" class="form-control" autocomplete="off">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="far fa-calendar-plus "></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12 col-md-8">
+                        <label for="tipofrete">Tipo de frete</label>
+                        <select class="form-control" id="tipofrete">
+                            <option>Selecione...</option>
+                            <option>Por conta do emitente</option>
+                            <option>Por conta do destinatário</option>
+                            <option>Por conta de terceiros</option>
+                            <option>Própria remetente</option>
+                            <option>Própria destinatário</option>
+                            <option>Sem frete</option>
+                        </select>
+                    </div>  
+                </div>
+                
+                <div class="row">
+                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF Cancelada</label>
+                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF Própria</label>
+                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF-e/CT-e</label>
+                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF-e Denegada</label>
+                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF-e Inutilizada</label>
+                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF Avulsa</label>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <button class="btn btn-default" type="reset">Cancelar</button>
+                        <button class="btn btn-success" type="submit">Confirmar</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="modal fade" id="modalDepartamento">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Consulta Departamento</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                            <table class="dados-os table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Descrição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Financeiro</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Setor Pessoal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Máquinas</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>                    
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalEspecie">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Consulta Espécie</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                            <table class="dados-os table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Descrição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Nota Fiscal de Saída</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Cupom Fiscal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Nota Fiscal de Compra</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>                    
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalApuracao">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Consulta Apuração</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                            <table class="dados-os table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Descrição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Financeiro</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Setor Pessoal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Máquinas</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>                    
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalOperacao">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Consulta Operação</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                            <table class="dados-os table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Descrição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Financeiro</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Setor Pessoal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Máquinas</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>                    
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalTransportador">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Consulta Transportador</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                            <table class="dados-os table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Descrição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Financeiro</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Setor Pessoal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Máquinas</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>                    
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalPublico">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Consulta Público</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                            <table class="dados-os table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Descrição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Financeiro</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Setor Pessoal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Máquinas</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>                    
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalTipoMovimento">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Consulta Tipo de Movimento</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                            <table class="dados-os table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Descrição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Financeiro</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Setor Pessoal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Máquinas</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>                    
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.pt-BR.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>        
+    <script>
+        $('.js-number').mask('########0');
+        $('.js-placa').mask('AAA-9999');
+
+
+        $('.js-datepicker').datepicker({
+            language: 'pt-BR',
+            autoclose: true
+        });        
+    </script>
+</html>
