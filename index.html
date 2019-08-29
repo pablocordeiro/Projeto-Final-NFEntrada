@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
 
         <link rel="stylesheet" href="estilo.css">
     </head>
@@ -613,7 +613,7 @@
     <script src="js/bootstrap-datepicker.min.js"></script>
     <script src="js/bootstrap-datepicker.pt-BR.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>        
-    <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script>
         $('.js-number').mask('########0');
         $('.js-placa').mask('AAA-9999');
@@ -650,15 +650,23 @@
     </script>
 
     <script>
+
+        // $('.js-table-departamento');
+
+        // $('#departamento').val('abacaxi!');
+
         $(document).ready(function() {
             var table= $('#tableDepartamento').DataTable();
+
             var tableBody = '#tableDepartamento tbody';
+
             $(tableBody).on('click', 'tr', function () {
                 var cursor = table.row($(this).parents('tr'));//get the clicked row
-                var data=cursor.data();// this will give you the data in the current row.
+                var data = cursor.data();// this will give you the data in the current row.
+            $("#departamento").val(data.name);
             });
 
-            $('form').find("input[name='departamento'][type='text']").val(data.name);
+            // $("#codigoDepartamento").val(data.codigo);
         });
     </script>
 </html>
