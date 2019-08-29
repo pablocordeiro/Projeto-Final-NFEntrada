@@ -13,36 +13,36 @@
         <link rel="stylesheet" href="estilo.css">
     </head>
     <body>
+        <header class="form-header">
+            <h1 class="text-center">Nota Fiscal De Entrada</h1>
+        </header>                
         <div class="container">
-            <form action="">
-                <header class="form-header">
-                    <h1 class="text-center">Nota Fiscal De Entrada</h1>
-                </header>                
-
-                <h4>Dados Gerais</h4>
+            <form class="needs-validation pb-4" novalidate>
+                
+                <h4 class="mt-4 border-bottom pb-4">Dados Gerais</h4>
                 <div class="row">
-                    <div class="form-group col-4">
+                    <div class="form-group col-12 col-md-3">
                         <label class="required" for="numero">Número</label>
-                        <input type="text" class="form-control  js-number" id="numero" required>
+                        <input type="text" class="form-control  js-number" id="numero" placeholder="Informe o número da nota fiscal" required>
                     </div>
-
-                    <div class="form-group col-4">
+                    
+                    <div class="form-group col-12 col-md-3">
                         <label class="required" for="serie">Série</label>
-                        <input type="text" maxlength="5" class="form-control" id="serie" required>
+                        <input type="text" maxlength="5" class="form-control" id="serie" placeholder="Informe a série da nota fiscal" required>
                     </div>
-
-                    <div class="form-group col-4">
+                    
+                    <div class="form-group col-12 col-md-3">
                         <label for="subserie">Sub-série</label>
-                        <input type="text"  maxlength="5" class="form-control" id="subserie">
+                        <input type="text"  maxlength="5" class="form-control"  placeholder="Sub-série da nota fiscal"  id="subserie">
                     </div>
                 </div>
-
+                
                 <div class="row">
-                    <div class="form-group col-4">
+                    <div class="form-group col-12 col-md-3">
                         <label for="dtemissao" class="required">Emissão</label>
                         <!-- <input type="text" class="form-control" id="dtemissao"> -->
                         <div class="input-group  date  js-datepicker">
-                            <input type="text" name="dtemissao" id="dtemissao" class="form-control" autocomplete="off" required>
+                            <input type="text" name="dtemissao" id="dtemissao" class="form-control" placeholder="dd/mm/aaaa"  autocomplete="off" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="far fa-calendar-plus "></span>
@@ -50,26 +50,12 @@
                             </div>
                         </div>
                     </div>                    
-
-                    <!-- <div class="form-group  col-sm-4">
-                        <label class="control-label" for="Data">Data de Entrega</label>
-                        <div class="input-group  date   js-datepicker">
-                            <input type="text" name="Data" class="form-control" autocomplete="off">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="far fa-calendar-plus "></span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div> -->
-        
-
-                    <div class="form-group col-4">
+                    
+                    <div class="form-group col-12 col-md-3">
                         <label for="dtentrada" class="required">Entrada</label>
                         <!-- <input type="text" class="form-control" id="dtentrada"> -->
                         <div class="input-group  date  js-datepicker">
-                            <input type="text" name="dtemissao" id="dtentrada" class="form-control" autocomplete="off">
+                            <input type="text" name="dtemissao" id="dtentrada" class="form-control"  placeholder="dd/mm/aaaa" autocomplete="off">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="far fa-calendar-plus "></span>
@@ -77,20 +63,18 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group col-4">
+                    
+                    <div class="form-group col-12 col-md-3">
                         <label for="hrentrada">Hora</label>
                         <input type="text" class="form-control" id="hrentrada">
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-12 col-md-6">
+                    
+                    <div class="form-group col-12 col-md-9">
                         <label class="control-label" for="departamento">Departamento</label>
                         <div class="input-group">
                             <input type="text" hidden name="codigoDepartamento" id="codigoDepartamento">
                             <div class="input-group">
-                                <input type="text" value="" class="form-control" name="departamento" id="departamento" placeholder="">
+                                <input type="text" value="" class="form-control" name="departamento" id="departamento" placeholder="Clique para buscar os departamentos">
                                 <div class="input-group-append">
                                     <div class="input-group-text" data-toggle="modal" data-target="#modalDepartamento">
                                         <i class="fas fa-search"></i>
@@ -99,12 +83,16 @@
                             </div>
                         </div>
                     </div>                    
-                    <div class="form-group col-12 col-md-6">
+                </div>
+                
+                <h4 class="mt-4 border-bottom pb-4">Dados Fiscais</h4>
+                <div class="row">
+                    <div class="form-group col-12 col-md-4">
                         <label class="control-label" for="especie">Espécie</label>
                         <div class="input-group">
                             <input type="text" hidden name="codigoEspecie" id="codigoEspecie">
                             <div class="input-group">
-                                <input type="text" value="" class="form-control" name="especie" id="especie" placeholder="">
+                                <input type="text" value="" class="form-control" name="especie" id="especie"  placeholder="Clique para consultar as espécies">
                                 <div class="input-group-append">
                                     <div class="input-group-text" data-toggle="modal" data-target="#modalEspecie">
                                         <i class="fas fa-search"></i>
@@ -113,15 +101,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="row">
-                    <div class="form-group col-12 col-md-6">
+                    <div class="col-md-1"></div>
+                    <div class="form-group col-12 col-md-4">
                         <label class="control-label" for="operacao">Operação</label>
                         <div class="input-group">
                             <input type="text" hidden name="codigoOperacao" id="codigoOperacao">
                             <div class="input-group">
-                                <input type="text" value="" class="form-control" name="operacao" id="operacao" placeholder="">
+                                <input type="text" value="" class="form-control" name="operacao" id="operacao" placeholder="Clique para consultar as operações">
                                 <div class="input-group-append">
                                     <div class="input-group-text" data-toggle="modal" data-target="#modalOperacao">
                                         <i class="fas fa-search"></i>
@@ -130,28 +116,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label class="control-label" for="transportador">Transportador</label>
-                        <div class="input-group">
-                            <input type="text" hidden name="codigoTransportador" id="codigoTransportador">
-                            <div class="input-group">
-                                <input type="text" value="" class="form-control" name="transportador" id="transportador" placeholder="">
-                                <div class="input-group-append">
-                                    <div class="input-group-text" data-toggle="modal" data-target="#modalTransportador">
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="form-group col-12 col-md-4">
                         <label class="control-label" for="apuracao">Apuração</label>
                         <div class="input-group">
                             <input type="text" hidden name="codigoApuracao" id="codigoApuracao">
                             <div class="input-group">
-                                <input type="text" value="" class="form-control" name="apuracao" id="apuracao" placeholder="">
+                                <input type="text" value="" class="form-control" name="apuracao" id="apuracao" placeholder="Clique para consultar as apurações">
                                 <div class="input-group-append">
                                     <div class="input-group-text" data-toggle="modal" data-target="#modalApuracao">
                                         <i class="fas fa-search"></i>
@@ -160,12 +130,17 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <h4 class="mt-4 border-bottom pb-4">Dados de Estoque</h4>
+                
+                <div class="row">
                     <div class="form-group col-12 col-md-4">
                         <label class="control-label" for="publico">Publico Estorno</label>
                         <div class="input-group">
                             <input type="text" hidden name="codigoPublico" id="codigoPublico">
                             <div class="input-group">
-                                <input type="text" value="" class="form-control" name="publico" id="publico" placeholder="">
+                                <input type="text" value="" class="form-control" name="publico" id="publico" placeholder="Clique para consultar os públicos">
                                 <div class="input-group-append">
                                     <div class="input-group-text" data-toggle="modal" data-target="#modalPublico">
                                         <i class="fas fa-search"></i>
@@ -174,12 +149,13 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-1"></div>
                     <div class="form-group col-12 col-md-4">
                         <label class="control-label" for="tipoMov">Tipo de movimento</label>
                         <div class="input-group">
                             <input type="text" hidden name="codigoTipoMov" id="codigoTipoMov">
                             <div class="input-group">
-                                <input type="text" value="" class="form-control" name="tipoMov" id="tipoMov" placeholder="">
+                                <input type="text" value="" class="form-control" name="tipoMov" id="tipoMov" placeholder="Clique para consultar os tipos de movimento">
                                 <div class="input-group-append">
                                     <div class="input-group-text" data-toggle="modal" data-target="#modalTipoMovimento">
                                         <i class="fas fa-search"></i>
@@ -189,17 +165,43 @@
                         </div>
                     </div>
                 </div>
-
-
-                <h4>Dados do Transporte</h4>
                 
                 <div class="row">
-                    <div class="form-group col-12 col-md-3">
-                        <label for="placa">Placa</label>
-                        <input type="text" class="form-control js-placa" id="placa">
+                    <label class="checkbox-inline col-12 col-md-3"><input type="checkbox" value="">NF Própria</label>
+                    <label class="checkbox-inline col-12 col-md-3"><input type="checkbox" value="">NF-e/CT-e</label>
+                    <label class="checkbox-inline col-12 col-md-3"><input type="checkbox" value="">NF Avulsa</label>
+                </div>
+                <div class="row">                    
+                </div>
+
+
+                <h4 class="mt-4 border-bottom pb-4">Dados do Transporte</h4>
+
+                <div class="row">
+                    <div class="form-group col-12 col-md-9">
+                        <label class="control-label" for="transportador">Transportador</label>
+                        <div class="input-group">
+                            <input type="text" hidden name="codigoTransportador" id="codigoTransportador">
+                            <div class="input-group">
+                                <input type="text" value="" class="form-control" name="transportador" id="transportador" placeholder="Selecione o transportador">
+                                <div class="input-group-append">
+                                    <div class="input-group-text" data-toggle="modal" data-target="#modalTransportador">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-group col-12 col-md-1">
+                </div>
+                <div class="row">
+                    
+                    <div class="form-group col-8 col-md-3">
+                        <label for="placa">Placa</label>
+                        <input type="text" class="form-control js-placa" id="placa" placeholder="AAA-0000">
+                    </div>
+    
+                    <div class="form-group col-4 col-md-2">
                         <label for="tipofrete">UF</label>
                         <select class="form-control" id="tipofrete">
                             <option></option>
@@ -209,7 +211,21 @@
                             <option>RJ</option>
                         </select>
                     </div>  
-    
+                    <div class="form-group col-12 col-md-4">
+                        <label for="tipofrete">Tipo de frete</label>
+                        <select class="form-control" id="tipofrete">
+                            <option>Selecione...</option>
+                            <option>Por conta do emitente</option>
+                            <option>Por conta do destinatário</option>
+                            <option>Por conta de terceiros</option>
+                            <option>Própria remetente</option>
+                            <option>Própria destinatário</option>
+                            <option>Sem frete</option>
+                        </select>
+                    </div>  
+                    
+                </div>
+                <div class="row">
                     
                     <div class="form-group col-12 col-md-2">
                         <label for="volumeqtd">Volume(Qtd)</label>
@@ -233,12 +249,20 @@
 
                 </div>
 
+                <h4 class="mt-4 border-bottom pb-4">Outras Informações</h4>
+
                 <div class="row">
-                    <div class="form-group col-12 col-md-4">
+                    <label class="checkbox-inline col-12 col-md-3"><input type="checkbox" value="">NF Cancelada</label>
+                    <label class="checkbox-inline col-12 col-md-3"><input type="checkbox" value="">NF-e Denegada</label>
+                    <label class="checkbox-inline col-12 col-md-3"><input type="checkbox" value="">NF-e Inutilizada</label>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-12 col-md-3">
                         <label for="datacanc">Data Cancelamento</label>
                         <!-- <input type="text" class="form-control" id="datacanc"> -->
                         <div class="input-group  date  js-datepicker">
-                            <input type="text" name="dtemissao" id="datacanc" class="form-control" autocomplete="off">
+                            <input type="text" name="dtemissao" id="datacanc" class="form-control"  placeholder="dd/mm/aaaa" autocomplete="off">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="far fa-calendar-plus "></span>
@@ -247,29 +271,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-12 col-md-8">
-                        <label for="tipofrete">Tipo de frete</label>
-                        <select class="form-control" id="tipofrete">
-                            <option>Selecione...</option>
-                            <option>Por conta do emitente</option>
-                            <option>Por conta do destinatário</option>
-                            <option>Por conta de terceiros</option>
-                            <option>Própria remetente</option>
-                            <option>Própria destinatário</option>
-                            <option>Sem frete</option>
-                        </select>
-                    </div>  
                 </div>
-                
-                <div class="row">
-                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF Cancelada</label>
-                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF Própria</label>
-                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF-e/CT-e</label>
-                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF-e Denegada</label>
-                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF-e Inutilizada</label>
-                    <label class="checkbox-inline col-4 col-md-4"><input type="checkbox" value="">NF Avulsa</label>
-                </div>
-                
                 <div class="row">
                     <div class="col-12 text-right">
                         <button class="btn btn-default" type="reset">Cancelar</button>
@@ -616,5 +618,26 @@
             language: 'pt-BR',
             autoclose: true
         });        
+    </script>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+        })();
     </script>
 </html>

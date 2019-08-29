@@ -1,10 +1,12 @@
 body {
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
+    /* background-color: rgb(194, 199, 199); */
 }
 
 .container{
-    background-color: rgb(204, 211, 248);
-    padding-bottom: 50px;
+    /* background-color: rgb(204, 211, 248); */
+    /* padding: 0%; */
+    /* padding-bottom: 20px; */
 }
 
 .required:after {
@@ -16,5 +18,4 @@ body {
     background-color: rgb(37, 68, 240);
     color: #fff;
     padding: 1%;
-    /* margin: 0% */
 }
