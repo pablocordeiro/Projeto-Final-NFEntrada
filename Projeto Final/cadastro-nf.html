@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Info Rio Sistemas - Cadastro Notas Fiscais</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-atlas"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Info Rio Sistemas</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Programas
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Controle de Estoque</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <!-- <h6 class="collapse-header"></h6> -->
+            <a class="collapse-item" href="consulta-nf.html">Nota Fiscal de Entrada</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Pablo Cordeiro</span>
+                <img class="img-profile rounded-circle" src="img/profile-img.JPG">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <h1 class="text-center">Nota Fiscal De Entrada</h1>
+
+          <form action="consulta-nf.html" class="needs-validation pb-4" novalidate="">
+                
+            <h4 class="mt-4 border-bottom pb-4">Dados Gerais</h4>
+            <div class="row">
+                <div class="form-group col-12 col-md-3">
+                    <label class="required" for="numero">Número</label>
+                    <input type="text" class="form-control  js-number" id="numero" placeholder="Informe o número da nota fiscal" required>
+                </div>
+                <div class="col-md-1"></div>
+                
+                <div class="form-group col-12 col-md-3">
+                    <label class="required" for="serie">Série</label>
+                    <input type="text" maxlength="5" class="form-control" id="serie" placeholder="Informe a série da nota fiscal" required>
+                </div>
+                <div class="col-md-1"></div>
+                
+                <div class="form-group col-12 col-md-3">
+                    <label for="subserie">Sub-série</label>
+                    <input type="text"  maxlength="5" class="form-control"  placeholder="Sub-série da nota fiscal"  id="subserie">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-12 col-md-3">
+                    <label for="dtemissao" class="required">Emissão</label>
+                    <!-- <input type="text" class="form-control" id="dtemissao"> -->
+                    <div class="input-group  date  js-datepicker">
+                        <input type="text" name="dtemissao" id="dtemissao" class="form-control js-date" placeholder="dd/mm/aaaa"  autocomplete="off" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="far fa-calendar-plus "></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+                <div class="col-md-1"></div>
+                
+                <div class="form-group col-12 col-md-3">
+                    <label for="dtentrada" class="required">Entrada</label>
+                    <!-- <input type="text" class="form-control" id="dtentrada"> -->
+                    <div class="input-group  date  js-datepicker">
+                        <input type="text" name="dtemissao" id="dtentrada" class="form-control js-date"  placeholder="dd/mm/aaaa" autocomplete="off" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="far fa-calendar-plus"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                
+                <div class="form-group col-12 col-md-3">
+                    <label for="hrentrada">Hora</label>
+                    <input type="text" class="form-control js-time" id="hrentrada">
+                </div>
+                
+                <div class="form-group col-12 col-md-9">
+                    <label class="control-label  required" for="departamento">Departamento</label>
+                    <div class="input-group">
+                        <input type="text" hidden name="codigoDepartamento" id="codigoDepartamento">
+                        <div class="input-group">
+                            <input type="text" value="" class="form-control" name="departamento" id="departamento" placeholder="Clique para buscar os departamentos" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text" data-toggle="modal" data-target="#modalDepartamento">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+            </div>
+            
+            <h4 class="mt-4 border-bottom pb-4">Dados Fiscais</h4>
+            <div class="row">
+                <div class="form-group col-12 col-md-4">
+                    <label class="control-label  required" for="especie">Espécie</label>
+                    <div class="input-group">
+                        <input type="text" hidden name="codigoEspecie" id="codigoEspecie">
+                        <div class="input-group">
+                            <input type="text" value="" class="form-control" name="especie" id="especie"  placeholder="Clique para consultar as espécies" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text" data-toggle="modal" data-target="#modalEspecie">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="form-group col-12 col-md-4">
+                    <label class="control-label  required" for="operacao">Operação</label>
+                    <div class="input-group">
+                        <input type="text" hidden name="codigoOperacao" id="codigoOperacao">
+                        <div class="input-group">
+                            <input type="text" value="" class="form-control" name="operacao" id="operacao" placeholder="Clique para consultar as operações" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text" data-toggle="modal" data-target="#modalOperacao">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-4">
+                    <label class="control-label" for="apuracao">Apuração</label>
+                    <div class="input-group">
+                        <input type="text" hidden name="codigoApuracao" id="codigoApuracao">
+                        <div class="input-group">
+                            <input type="text" value="" class="form-control" name="apuracao" id="apuracao" placeholder="Clique para consultar as apurações">
+                            <div class="input-group-append">
+                                <div class="input-group-text" data-toggle="modal" data-target="#modalApuracao">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="checkbox-inline col-12 col-md-4"><input type="checkbox" value="">NF Própria</label>
+                <label class="checkbox-inline col-12 col-md-4"><input type="checkbox" value="">NF-e/CT-e</label>
+                <label class="checkbox-inline col-12 col-md-4"><input type="checkbox" value="">NF Avulsa</label>
+            </div>
+            
+            <h4 class="mt-4 border-bottom pb-4">Dados de Estoque</h4>
+            
+            <div class="row">
+                <div class="form-group col-12 col-md-4">
+                    <label class="control-label" for="publico">Publico Estorno</label>
+                    <div class="input-group">
+                        <input type="text" hidden name="codigoPublico" id="codigoPublico">
+                        <div class="input-group">
+                            <input type="text" value="" class="form-control" name="publico" id="publico" placeholder="Clique para consultar os públicos">
+                            <div class="input-group-append">
+                                <div class="input-group-text" data-toggle="modal" data-target="#modalPublico">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="form-group col-12 col-md-4">
+                    <label class="control-label" for="tipoMov">Tipo de movimento</label>
+                    <div class="input-group">
+                        <input type="text" hidden name="codigoTipoMov" id="codigoTipoMov">
+                        <div class="input-group">
+                            <input type="text" value="" class="form-control" name="tipoMov" id="tipoMov" placeholder="Clique para consultar os tipos de movimento">
+                            <div class="input-group-append">
+                                <div class="input-group-text" data-toggle="modal" data-target="#modalTipoMovimento">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <h4 class="mt-4 border-bottom pb-4">Dados do Transporte</h4>
+
+            <div class="row">
+                <div class="form-group col-12 col-md-9">
+                    <label class="control-label" for="transportador">Transportador</label>
+                    <div class="input-group">
+                        <input type="text" hidden name="codigoTransportador" id="codigoTransportador">
+                        <div class="input-group">
+                            <input type="text" value="" class="form-control" name="transportador" id="transportador" placeholder="Selecione o transportador">
+                            <div class="input-group-append">
+                                <div class="input-group-text" data-toggle="modal" data-target="#modalTransportador">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-3">
+                    <label for="tipofrete">Tipo de frete</label>
+                    <select class="form-control" id="tipofrete">
+                        <option>Selecione...</option>
+                        <option>Por conta do emitente</option>
+                        <option>Por conta do destinatário</option>
+                        <option>Por conta de terceiros</option>
+                        <option>Própria remetente</option>
+                        <option>Própria destinatário</option>
+                        <option>Sem frete</option>
+                    </select>
+                </div>  
+                
+            </div>
+            <div class="row">
+                
+                <div class="form-group col-8 col-md-3">
+                    <label for="placa">Placa</label>
+                    <input type="text" class="form-control js-placa" id="placa" placeholder="AAA-0000">
+                </div>
+
+                <div class="form-group col-4 col-md-2">
+                    <label for="tipofrete">UF</label>
+                    <select class="form-control" id="tipofrete">
+                        <option></option>
+                        <option>BA</option>
+                        <option>PE</option>
+                        <option>SP</option>
+                        <option>RJ</option>
+                    </select>
+                </div>  
+                
+            </div>
+            <div class="row">
+                
+                <div class="form-group col-12 col-md-2">
+                    <label for="volumeqtd">Volume(Qtd)</label>
+                    <input type="text" class="form-control  js-number" id="volumeqtd">
+                </div>
+
+                <div class="form-group col-12 col-md-2">
+                    <label for="volumeesp">Volume(Especie)</label>
+                    <input type="text" class="form-control" id="volumeesp">
+                </div>
+
+                <div class="form-group col-12 col-md-2">
+                    <label for="pesobruto">Peso Bruto</label>
+                    <input type="text" class="form-control js-money" id="pesobruto">
+                </div>
+
+                <div class="form-group col-12 col-md-2">
+                    <label for="pesoliq">Peso Líquido</label>
+                    <input type="text" class="form-control js-money" id="pesoliq">
+                </div>
+
+            </div>
+
+            <h4 class="mt-4 border-bottom pb-4">Outras Informações</h4>
+
+            <div class="row">
+                <label class="checkbox-inline col-12 col-md-4"><input type="checkbox" value="">NF Cancelada</label>
+                <label class="checkbox-inline col-12 col-md-4"><input type="checkbox" value="">NF-e Denegada</label>
+                <label class="checkbox-inline col-12 col-md-4"><input type="checkbox" value="">NF-e Inutilizada</label>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-12 col-md-3">
+                    <label for="datacanc">Data Cancelamento</label>
+                    <!-- <input type="text" class="form-control" id="datacanc"> -->
+                    <div class="input-group  date  js-datepicker">
+                        <input type="text" name="dtemissao" id="datacanc" class="form-control js-date"  placeholder="dd/mm/aaaa" autocomplete="off">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="far fa-calendar-plus "></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <button class="btn btn-default" type="reset">Cancelar</button>
+                    <button class="btn btn-success" type="submit">Confirmar</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="modal fade" id="modalDepartamento">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Consulta Departamento</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                        <table id="tableDepartamento" class="dados-os table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyDepartamento">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Financeiro</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Setor Pessoal</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Máquinas</td>
+                                </tr>
+
+                            </tbody>
+                        </table>                    
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalEspecie">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Consulta Espécie</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                        <table id="tableEspecie" class="dados-os table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyEspecie">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Nota Fiscal de Saída</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Cupom Fiscal</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Nota Fiscal de Compra</td>
+                                </tr>
+
+                            </tbody>
+                        </table>                    
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalApuracao">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Consulta Apuração</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                        <table id="tableApuracao" class="dados-os table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyApuracao">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Geral</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Específica</td>
+                                </tr>
+                            </tbody>
+                        </table>                    
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalOperacao">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Consulta Operação</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                        <table id="tableOperacao" class="dados-os table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyOperacao">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Entrada por Compra</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Sáida por Venda</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Devolução</td>
+                                </tr>
+
+                            </tbody>
+                        </table>                    
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalTransportador">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Consulta Transportador</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                        <table id="tableTransportador" class="dados-os table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyTransportador">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Correios</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Sedex</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Jadlog</td>
+                                </tr>
+
+                            </tbody>
+                        </table>                    
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalPublico">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Consulta Público</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                        <table id="tablePublico" class="dados-os table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyPublico">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Publico 1</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Publico 2</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Publico 3</td>
+                                </tr>
+
+                            </tbody>
+                        </table>                    
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalTipoMovimento">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Consulta Tipo de Movimento</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                        <table id="tableTipoMov" class="dados-os table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyTipoMov">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Entrada</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Saída</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Transferência</td>
+                                </tr>
+
+                            </tbody>
+                        </table>                    
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy;Info Rio Sistemas 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/bootstrap-datepicker.pt-BR.min.js"></script>
+  <script src="js/jquery.mask.min.js"></script>        
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script>
+      $('.js-number').mask('########0');
+      $('.js-placa').mask('AAA-9999');
+      $('.js-date').mask('00/00/0000');
+      $('.js-time').mask('00:00:00');
+      $('.js-money').mask('#.##0,00', {reverse: true});
+
+
+      $('.js-datepicker').datepicker({
+          language: 'pt-BR',
+          autoclose: true
+      });        
+  </script>
+
+  <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+          }, false);
+          });
+      }, false);
+      })();
+  </script>
+
+  <script>
+
+      $(document).ready(function() {
+          var tableDepartamento= $('#tableDepartamento').DataTable();
+          // var tableBody = '#bodyDepartamento';
+
+          $('#bodyDepartamento').on('click', 'tr', function () {
+              var cursor = tableDepartamento.row($(this));
+              var data = cursor.data();// this will give you the data in the current row.
+              console.log(cursor);
+              $("#codigoDepartamento").val(data[0]);
+              $("#departamento").val(data[1]);
+              $('#modalDepartamento').modal('hide');
+          });
+
+          var tableEspecie= $('#tableEspecie').DataTable();
+
+          $('#bodyEspecie').on('click', 'tr', function () {
+              var cursor = tableEspecie.row($(this));
+              var data = cursor.data();// this will give you the data in the current row.
+              console.log(cursor);
+              $("#codigoEspecie").val(data[0]);
+              $("#especie").val(data[1]);
+              $('#modalEspecie').modal('hide');
+          });            
+
+          var tableOperacao= $('#tableOperacao').DataTable();
+
+          $('#bodyOperacao').on('click', 'tr', function () {
+              var cursor = tableOperacao.row($(this));
+              var data = cursor.data();// this will give you the data in the current row.
+              console.log(cursor);
+              $("#codigoOperacao").val(data[0]);
+              $("#operacao").val(data[1]);
+              $('#modalOperacao').modal('hide');
+          });            
+
+          var tableApuracao= $('#tableApuracao').DataTable();
+
+          $('#bodyApuracao').on('click', 'tr', function () {
+              var cursor = tableApuracao.row($(this));
+              var data = cursor.data();// this will give you the data in the current row.
+              console.log(cursor);
+              $("#codigoApuracao").val(data[0]);
+              $("#apuracao").val(data[1]);
+              $('#modalApuracao').modal('hide');
+          });            
+
+          var tablePublico= $('#tablePublico').DataTable();
+
+          $('#bodyPublico').on('click', 'tr', function () {
+              var cursor = tablePublico.row($(this));
+              var data = cursor.data();// this will give you the data in the current row.
+              console.log(cursor);
+              $("#codigoPublico").val(data[0]);
+              $("#publico").val(data[1]);
+              $('#modalPublico').modal('hide');
+          });  
+
+          var tableTipoMov= $('#tableTipoMov').DataTable();
+
+          $('#bodyTipoMov').on('click', 'tr', function () {
+              var cursor = tableTipoMov.row($(this));
+              var data = cursor.data();// this will give you the data in the current row.
+              console.log(cursor);
+              $("#codigoTipoMov").val(data[0]);
+              $("#tipoMov").val(data[1]);
+              $('#modalTipoMovimento').modal('hide');
+          });            
+
+          var tableTransportador= $('#tableTransportador').DataTable();
+
+          $('#bodyTransportador').on('click', 'tr', function () {
+              var cursor = tableTransportador.row($(this));
+              var data = cursor.data();// this will give you the data in the current row.
+              console.log(cursor);
+              $("#codigoTransportador").val(data[0]);
+              $("#transportador").val(data[1]);
+              $('#modalTransportador').modal('hide');
+          });            
+      });
+
+  </script>
+
+
+</body>
+
+</html>

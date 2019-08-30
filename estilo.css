@@ -19,3 +19,7 @@ body {
     color: #fff;
     padding: 1%;
 }
+
+.paginacao .pagination {
+    margin-top: 20px;
+}
