@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
-        <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
 
         <link rel="stylesheet" href="estilo.css">
     </head>
@@ -303,7 +303,7 @@
                                         <th>Descrição</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="bodyDepartamento">
                                     <tr>
                                         <td>1</td>
                                         <td>Financeiro</td>
@@ -342,14 +342,14 @@
                     
                     <!-- Modal body -->
                     <div class="modal-body">
-                            <table class="dados-os table table-striped table-bordered table-hover">
+                            <table id="tableEspecie" class="dados-os table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Código</th>
                                         <th>Descrição</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="bodyEspecie">
                                     <tr>
                                         <td>1</td>
                                         <td>Nota Fiscal de Saída</td>
@@ -388,27 +388,22 @@
                     
                     <!-- Modal body -->
                     <div class="modal-body">
-                            <table class="dados-os table table-striped table-bordered table-hover">
+                            <table id="tableApuracao" class="dados-os table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Código</th>
                                         <th>Descrição</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="bodyApuracao">
                                     <tr>
                                         <td>1</td>
-                                        <td>Financeiro</td>
+                                        <td>Geral</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>Setor Pessoal</td>
+                                        <td>Específica</td>
                                     </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Máquinas</td>
-                                    </tr>
-
                                 </tbody>
                             </table>                    
                     </div>
@@ -434,25 +429,25 @@
                     
                     <!-- Modal body -->
                     <div class="modal-body">
-                            <table class="dados-os table table-striped table-bordered table-hover">
+                            <table id="tableOperacao" class="dados-os table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Código</th>
                                         <th>Descrição</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="bodyOperacao">
                                     <tr>
                                         <td>1</td>
-                                        <td>Financeiro</td>
+                                        <td>Entrada por Compra</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>Setor Pessoal</td>
+                                        <td>Sáida por Venda</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td>Máquinas</td>
+                                        <td>Devolução</td>
                                     </tr>
 
                                 </tbody>
@@ -480,25 +475,25 @@
                     
                     <!-- Modal body -->
                     <div class="modal-body">
-                            <table class="dados-os table table-striped table-bordered table-hover">
+                            <table id="tableTransportador" class="dados-os table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Código</th>
                                         <th>Descrição</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="bodyTransportador">
                                     <tr>
                                         <td>1</td>
-                                        <td>Financeiro</td>
+                                        <td>Correios</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>Setor Pessoal</td>
+                                        <td>Sedex</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td>Máquinas</td>
+                                        <td>Jadlog</td>
                                     </tr>
 
                                 </tbody>
@@ -526,25 +521,25 @@
                     
                     <!-- Modal body -->
                     <div class="modal-body">
-                            <table class="dados-os table table-striped table-bordered table-hover">
+                            <table id="tablePublico" class="dados-os table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Código</th>
                                         <th>Descrição</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="bodyPublico">
                                     <tr>
                                         <td>1</td>
-                                        <td>Financeiro</td>
+                                        <td>Publico 1</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>Setor Pessoal</td>
+                                        <td>Publico 2</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td>Máquinas</td>
+                                        <td>Publico 3</td>
                                     </tr>
 
                                 </tbody>
@@ -572,25 +567,25 @@
                     
                     <!-- Modal body -->
                     <div class="modal-body">
-                            <table class="dados-os table table-striped table-bordered table-hover">
+                            <table id="tableTipoMov" class="dados-os table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Código</th>
                                         <th>Descrição</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="bodyTipoMov">
                                     <tr>
                                         <td>1</td>
-                                        <td>Financeiro</td>
+                                        <td>Entrada</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>Setor Pessoal</td>
+                                        <td>Saída</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td>Máquinas</td>
+                                        <td>Transferência</td>
                                     </tr>
 
                                 </tbody>
@@ -613,7 +608,7 @@
     <script src="js/bootstrap-datepicker.min.js"></script>
     <script src="js/bootstrap-datepicker.pt-BR.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>        
-    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script>
         $('.js-number').mask('########0');
         $('.js-placa').mask('AAA-9999');
@@ -651,22 +646,102 @@
 
     <script>
 
-        // $('.js-table-departamento');
-
-        // $('#departamento').val('abacaxi!');
-
         $(document).ready(function() {
-            var table= $('#tableDepartamento').DataTable();
+            var tableDepartamento= $('#tableDepartamento').DataTable();
+            // var tableBody = '#bodyDepartamento';
 
-            var tableBody = '#tableDepartamento tbody';
-
-            $(tableBody).on('click', 'tr', function () {
-                var cursor = table.row($(this).parents('tr'));//get the clicked row
+            $('#bodyDepartamento').on('click', 'tr', function () {
+                var cursor = tableDepartamento.row($(this));
                 var data = cursor.data();// this will give you the data in the current row.
-            $("#departamento").val(data.name);
+                console.log(cursor);
+                $("#codigoDepartamento").val(data[0]);
+                $("#departamento").val(data[1]);
             });
 
-            // $("#codigoDepartamento").val(data.codigo);
+            var tableEspecie= $('#tableEspecie').DataTable();
+
+            $('#bodyEspecie').on('click', 'tr', function () {
+                var cursor = tableEspecie.row($(this));
+                var data = cursor.data();// this will give you the data in the current row.
+                console.log(cursor);
+                $("#codigoEspecie").val(data[0]);
+                $("#especie").val(data[1]);
+            });            
+
+            var tableOperacao= $('#tableOperacao').DataTable();
+
+            $('#bodyOperacao').on('click', 'tr', function () {
+                var cursor = tableOperacao.row($(this));
+                var data = cursor.data();// this will give you the data in the current row.
+                console.log(cursor);
+                $("#codigoOperacao").val(data[0]);
+                $("#operacao").val(data[1]);
+            });            
+
+            var tableApuracao= $('#tableApuracao').DataTable();
+
+            $('#bodyApuracao').on('click', 'tr', function () {
+                var cursor = tableApuracao.row($(this));
+                var data = cursor.data();// this will give you the data in the current row.
+                console.log(cursor);
+                $("#codigoApuracao").val(data[0]);
+                $("#apuracao").val(data[1]);
+            });            
+
+            var tablePublico= $('#tablePublico').DataTable();
+
+            $('#bodyPublico').on('click', 'tr', function () {
+                var cursor = tablePublico.row($(this));
+                var data = cursor.data();// this will give you the data in the current row.
+                console.log(cursor);
+                $("#codigoPublico").val(data[0]);
+                $("#publico").val(data[1]);
+            });  
+
+            var tableTipoMov= $('#tableTipoMov').DataTable();
+
+            $('#bodyTipoMov').on('click', 'tr', function () {
+                var cursor = tableTipoMov.row($(this));
+                var data = cursor.data();// this will give you the data in the current row.
+                console.log(cursor);
+                $("#codigoTipoMov").val(data[0]);
+                $("#tipoMov").val(data[1]);
+            });            
+
+            var tableTransportador= $('#tableTransportador').DataTable();
+
+            $('#bodyTransportador').on('click', 'tr', function () {
+                var cursor = tableTransportador.row($(this));
+                var data = cursor.data();// this will give you the data in the current row.
+                console.log(cursor);
+                $("#codigoTransportador").val(data[0]);
+                $("#transportador").val(data[1]);
+            });            
         });
+
+
+        // $(document).ready(function() {
+                
+            
+
+        //     function selecionarDadosTabela(nomeCampo){
+
+        //         var table= $('#table' + nomeCampo).DataTable();
+        //         var tableBody = '#table' + nomeCampo + ' tbody';
+        //         $(tableBody).on('click', 'tr', function () {
+        //             var cursor = table.row($(this));
+        //             // var cursor = table.row($(this).parents('tr'));//get the clicked row
+        //             var data = cursor.data();// this will give you the data in the current row.
+        //             console.log(cursor);
+        //             $("#codigo" + nomeCampo).val(data[0]);
+        //             $("#" + nomeCampo).val(data[1]);
+        //             console.log(nomeCampo);
+                    
+        //         });
+        //     };
+        //     selecionarDadosTabela('departamento');
+        // });
+
+
     </script>
 </html>
